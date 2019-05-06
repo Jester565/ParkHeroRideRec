@@ -29,11 +29,9 @@ def getArrTransitions(smartAvgs):
 
 def smartAverage(millisArr, accelArrs, millisInterval, millisWindowSize, signChangeLimit, limit):
     window = []
-    windowSizes = []
     signChangeWindow = []
     for idx, val in enumerate(accelArrs):
         window.append(0)
-        windowSizes.append(0)
         signChangeWindow.append(0)
 
     smartAvgs = []
