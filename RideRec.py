@@ -29,10 +29,11 @@ def getArrTransitions(smartAvgs):
 
 def smartAverage(millisArr, accelArrs, millisInterval, millisWindowSize, signChangeLimit, limit):
     window = []
+    windowSizes = []
     signChangeWindow = []
-    resultArrs = []
     for idx, val in enumerate(accelArrs):
         window.append(0)
+        windowSizes.append(0)
         signChangeWindow.append(0)
 
     smartAvgs = []
@@ -176,6 +177,7 @@ def getArrDistance(bigArr, subArr, highI, midI, bigOff = 0, subOff = 0, blockLow
         lowDist = (subArr[midI] - subOff) - (bigArr[highI - 1] - bigOff)
     if highI >= 0 and highI < len(bigArr) and midI < len(subArr):
         highDist = (bigArr[highI] - bigOff) - (subArr[midI] - subOff)
+    minDist = 0
     if not blockLow and not blockHigh:
         minDist = min(lowDist, highDist)
     elif not blockLow:
